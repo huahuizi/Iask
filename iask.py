@@ -3,6 +3,9 @@ import requests, re
 from pyquery import PyQuery as pq
 from requests.exceptions import RequestException
 from fake_useragent import UserAgent
+import sys
+sys.setrecursionlimit(100000)
+# 增加递归的限制 最大是100000,你可以根据电脑的配置进行修改
 SITE = "http://iask.sina.com.cn"
 from bs4 import BeautifulSoup as bs4
 from Tools import Tool
@@ -58,7 +61,7 @@ def save_mongo(dic):
     # pass
 
 if __name__ == '__main__':
-    url = "http://iask.sina.com.cn/c/213-goodAnswer-180-new.html"
+    url = "http://iask.sina.com.cn/c/213-goodAnswer-7577-new.html"
     html = getHtml(url)
     nextii = get_next_url_one(html)
     get_list_href(nextii)
